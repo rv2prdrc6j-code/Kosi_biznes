@@ -19,8 +19,6 @@
             --light: #f8f9fa;
             --dark: #343a40;
             --gray: #6c757d;
-            --new-year: #d32f2f;
-            --new-year-light: #ffcdd2;
         }
         
         body {
@@ -28,17 +26,71 @@
             line-height: 1.6;
             background-color: #f9f7fe;
             overflow-x: hidden;
-            position: relative;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* Военный стиль для Дня защитника Отечества */
+        .military-theme {
+            --primary: #1a472a;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #0d2818;
         }
         
-        /* Новогоднее поздравление */
-        .new-year-popup {
+        .military-theme header {
+            background: linear-gradient(135deg, #1a472a, #2a623d);
+            border-bottom: 3px solid #d4af37;
+        }
+        
+        .military-theme .hero {
+            background: linear-gradient(rgba(26, 71, 42, 0.1), rgba(212, 175, 55, 0.1));
+        }
+        
+        .military-theme .hero h2 {
+            color: #1a472a;
+        }
+        
+        .military-theme .section-title h2 {
+            color: #1a472a;
+        }
+        
+        .military-theme .product-card {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .military-theme .form-header {
+            background: linear-gradient(to right, #1a472a, #2a623d);
+        }
+        
+        .military-theme .submit-btn {
+            background: linear-gradient(to right, #d4af37, #ffd700);
+            color: #1a472a;
+        }
+        
+        .military-theme .submit-btn:hover {
+            background: linear-gradient(to right, #ffd700, #ffed4e);
+        }
+        
+        .military-theme .cta-button {
+            background: #d4af37;
+            color: #1a472a;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .military-theme .cta-button:hover {
+            background: #ffd700;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .military-theme .product-price {
+            background: #fff8e1;
+        }
+        
+        .military-theme .product-price-small {
+            background: #fff8e1;
+        }
+        
+        /* Анимация поздравления */
+        .holiday-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -46,90 +98,68 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.9);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 2000;
-            animation: fadeIn 0.5s ease;
+            z-index: 10000;
+            animation: fadeOut 0.5s ease-in-out 5s forwards;
         }
         
-        .new-year-content {
-            background: linear-gradient(135deg, #d32f2f, #c62828);
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
+        .holiday-message {
             text-align: center;
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            box-shadow: 0 0 50px rgba(211, 47, 47, 0.7);
-            animation: popupScale 0.8s ease;
+            color: white;
+            z-index: 10001;
         }
         
-        .new-year-content h2 {
-            font-size: 2.5rem;
+        .holiday-message h1 {
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            color: #ffeb3b;
-            text-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
-        }
-        
-        .new-year-content p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-        }
-        
-        .new-year-discount {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #ffeb3b;
-            margin: 20px 0;
-            text-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
             animation: pulse 2s infinite;
         }
         
-        .close-popup {
-            background: #ffeb3b;
-            color: #d32f2f;
-            border: none;
-            padding: 12px 40px;
-            border-radius: 50px;
+        .holiday-message p {
+            font-size: 1.5rem;
+            color: #ffffff;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .patriotic-text {
+            color: #d4af37;
             font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
+            font-size: 1.8rem;
+            margin-top: 20px;
         }
         
-        .close-popup:hover {
-            background: #ffd600;
-            transform: scale(1.05);
+        /* Салют */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            z-index: 10000;
         }
         
-        /* Снег */
-        .snowflake {
-            position: fixed;
-            top: -10px;
-            color: white;
-            font-size: 1em;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-            user-select: none;
-            z-index: 1000;
-            pointer-events: none;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
-        /* Новогодний баннер */
-        .new-year-banner {
-            background: linear-gradient(90deg, #d32f2f, #f57c00);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            position: relative;
-            overflow: hidden;
-            z-index: 10;
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
         }
         
-        .new-year-banner span {
-            font-weight: bold;
-            color: #ffeb3b;
-            animation: blink 1.5s infinite;
+        /* Основные стили */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         /* Header */
@@ -288,14 +318,11 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
-        .product-icon {
-            background: linear-gradient(to right, var(--primary), #8a6bdb);
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
         }
         
         .product-info {
@@ -311,75 +338,49 @@
         .product-price {
             font-size: 1.3rem;
             font-weight: bold;
-            color: var(--new-year);
+            color: #d32f2f;
             margin: 10px 0;
             padding: 5px 10px;
-            background: var(--new-year-light);
+            background: #ffebee;
             border-radius: 5px;
             display: inline-block;
         }
         
-        .new-year-tag {
+        /* Military Product Special */
+        .military-product {
+            border: 2px solid #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .military-product:before {
+            content: "★";
             position: absolute;
-            top: 15px;
-            right: -30px;
-            background: var(--new-year);
+            top: 10px;
+            right: 10px;
+            background: #d4af37;
+            color: #1a472a;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .military-badge {
+            position: absolute;
+            top: 10px;
+            left: -30px;
+            background: #d32f2f;
             color: white;
             padding: 5px 35px;
-            font-weight: bold;
-            transform: rotate(45deg);
+            transform: rotate(-45deg);
             font-size: 0.8rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        /* Examples Section */
-        .examples {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, rgba(93, 59, 173, 0.05), rgba(255, 107, 139, 0.05));
-        }
-        
-        .examples-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .example-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .example-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-        }
-        
-        .example-img {
-            width: 100%;
-            height: 250px; /* Фиксированная высота для всех изображений */
-            object-fit: cover; /* Изображение будет обрезаться, но заполнит контейнер */
-            display: block;
-            border-bottom: 3px solid var(--primary);
-        }
-        
-        .example-info {
-            padding: 20px;
-        }
-        
-        .example-info h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .example-info p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-weight: bold;
+            z-index: 1;
         }
         
         /* Order Form */
@@ -479,8 +480,8 @@
         
         .product-price-small {
             font-weight: bold;
-            color: var(--new-year);
-            background: var(--new-year-light);
+            color: #d32f2f;
+            background: #ffebee;
             padding: 3px 8px;
             border-radius: 5px;
             font-size: 0.9rem;
@@ -590,34 +591,6 @@
             color: rgba(255, 255, 255, 0.7);
         }
         
-        /* Анимации */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes popupScale {
-            0% { transform: scale(0.5); opacity: 0; }
-            70% { transform: scale(1.05); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        @keyframes snowFall {
-            0% { transform: translateY(-10px) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(360deg); }
-        }
-        
         /* Responsive */
         @media (max-width: 992px) {
             .hero h2 {
@@ -626,18 +599,6 @@
             
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .examples-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .new-year-content h2 {
-                font-size: 2rem;
-            }
-            
-            .new-year-discount {
-                font-size: 2.5rem;
             }
         }
         
@@ -665,30 +626,29 @@
                 grid-template-columns: 1fr;
             }
             
-            .examples-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .example-img {
-                height: 220px; /* Немного уменьшаем высоту на мобильных */
+            .product-image {
+                height: 180px;
             }
             
             .form-content {
                 padding: 30px 20px;
             }
             
-            .new-year-content {
-                padding: 30px 20px;
-            }
-            
-            .new-year-banner {
-                font-size: 0.9rem;
-                padding: 12px;
-            }
-            
             .logo-img {
                 width: 40px;
                 height: 40px;
+            }
+            
+            .holiday-message h1 {
+                font-size: 2.5rem;
+            }
+            
+            .holiday-message p {
+                font-size: 1.2rem;
+            }
+            
+            .patriotic-text {
+                font-size: 1.5rem;
             }
         }
         
@@ -729,14 +689,6 @@
                 gap: 15px;
             }
             
-            .new-year-content h2 {
-                font-size: 1.8rem;
-            }
-            
-            .new-year-discount {
-                font-size: 2rem;
-            }
-            
             .product-option {
                 flex-wrap: wrap;
             }
@@ -746,28 +698,33 @@
                 height: 35px;
             }
             
-            .example-img {
-                height: 200px; /* Еще немного уменьшаем на очень маленьких экранах */
+            .product-image {
+                height: 160px;
+            }
+            
+            .holiday-message h1 {
+                font-size: 2rem;
+            }
+            
+            .holiday-message p {
+                font-size: 1rem;
+            }
+            
+            .patriotic-text {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Новогоднее поздравление -->
-    <div class="new-year-popup" id="newYearPopup">
-        <div class="new-year-content">
-            <h2>С Новым 2026 Годом! 🎄🎅</h2>
-            <p>Дорогие друзья! Команда Kosi поздравляет вас с наступающим Новым Годом!</p>
-            <div class="new-year-discount">Скидка 10%</div>
-            <p>На все товары до 31 января 2026 года!</p>
-            <p>Дарите уникальные подарки с персональным дизайном своим близким!</p>
-            <button class="close-popup" id="closePopup">Вперед за подарками!</button>
+    <!-- Праздничное поздравление -->
+    <div class="holiday-overlay" id="holidayOverlay">
+        <div class="holiday-message">
+            <h1>С Днём Защитника Отечества!</h1>
+            <p>Дорогие защитники, ветераны и все те, кто стоит на страже нашей Родины!</p>
+            <p>От всего сердца поздравляем вас с праздником мужества, чести и отваги!</p>
+            <div class="patriotic-text">Слава защитникам Отечества!</div>
         </div>
-    </div>
-
-    <!-- Новогодний баннер -->
-    <div class="new-year-banner">
-        🎁 <span>НОВОГОДНЯЯ АКЦИЯ!</span> Скидка 10% на все товары до 31 января 2026 года! 🎄
     </div>
 
     <!-- Header -->
@@ -786,7 +743,6 @@
                 <ul>
                     <li><a href="#home">Главная</a></li>
                     <li><a href="#products">Товары</a></li>
-                    <li><a href="#examples">Примеры работ</a></li>
                     <li><a href="#order">Заказать</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
@@ -813,34 +769,25 @@
             
             <div class="products-grid">
                 <div class="product-card">
-                    <div class="new-year-tag">-10%</div>
-                    <div class="product-icon">
-                        <i class="fas fa-magnet"></i>
-                    </div>
+                    <img src="магнит мин.jpg" alt="Магниты" class="product-image">
                     <div class="product-info">
                         <h3>Магниты</h3>
-                        <div class="product-price">80/100 ₽ / шт</div>
+                        <div class="product-price">80 ₽ / шт</div>
                         <p>Яркие, долговечные магниты с любым изображением. Идеальный сувенир на память.</p>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="new-year-tag">-10%</div>
-                    <div class="product-icon">
-                        <i class="fas fa-sticky-note"></i>
-                    </div>
+                    <img src="стикер.jpg" alt="3D Стикеры" class="product-image">
                     <div class="product-info">
                         <h3>3D Стикеры</h3>
-                        <div class="product-price">85 ₽ / шт</div>
+                        <div class="product-price">65 ₽ / шт</div>
                         <p>Объемные наклейки с эффектом 3D. Украсят любую поверхность и поднимут настроение.</p>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="new-year-tag">-10%</div>
-                    <div class="product-icon">
-                        <i class="fas fa-images"></i>
-                    </div>
+                    <img src="Брелок.jpg" alt="Альбом-брелок" class="product-image">
                     <div class="product-info">
                         <h3>Альбом-брелок</h3>
                         <div class="product-price">380 ₽ / шт</div>
@@ -848,11 +795,18 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
-                    <div class="new-year-tag">-10%</div>
-                    <div class="product-icon">
-                        <i class="fas fa-cookie-bite"></i>
+                <div class="product-card military-product">
+                    <div class="military-badge">Спецпредложение</div>
+                    <img src="2026-02-07_17-28-32.png" alt="Шоколад для защитников" class="product-image">
+                    <div class="product-info">
+                        <h3>Шоколад для защитников</h3>
+                        <div class="product-price">370 ₽ / шт</div>
+                        <p>Тематический шоколад ко Дню защитника Отечества с патриотическим дизайном. Отличный подарок для коллег, друзей и родных.</p>
                     </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="Шоколад1.jpg" alt="Именной шоколад" class="product-image">
                     <div class="product-info">
                         <h3>Именной шоколад</h3>
                         <div class="product-price">20 ₽ / шт</div>
@@ -861,102 +815,22 @@
                 </div>
                 
                 <div class="product-card">
-                    <div class="new-year-tag">-10%</div>
-                    <div class="product-icon">
-                        <i class="fas fa-pen-fancy"></i>
-                    </div>
+                    <img src="Ручки.jpg" alt="Именные ручки" class="product-image">
                     <div class="product-info">
                         <h3>Именные ручки</h3>
-                        <div class="product-price">80 ₽ / шт</div>
+                        <div class="product-price">70 ₽ / шт</div>
                         <p>Элегантные ручки с гравировкой имени или логотипа. Стильный и практичный подарок.</p>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="new-year-tag">-10%</div>
-                    <div class="product-icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
+                    <img src="Куб с фото.jpg" alt="Куб с фотографиями" class="product-image">
                     <div class="product-info">
                         <h3>Куб с фотографиями</h3>
                         <div class="product-price">750 ₽ / шт</div>
                         <p>Элегантный акриловый куб с вашими фотографиями на каждой грани. Современный и стильный подарок на память.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Examples Section -->
-    <section class="examples" id="examples">
-        <div class="container">
-            <div class="section-title">
-                <h2>Примеры наших работ</h2>
-                <p>Реальные примеры персонализированных сувениров, которые мы создали для наших клиентов</p>
-            </div>
-            
-            <div class="examples-grid">
-                <!-- Пример 1 -->
-                <div class="example-card">
-                    <img src="магнит мин.jpg" alt="Пример работы 1" class="example-img">
-                    <div class="example-info">
-                        <h3>Персонализированные магниты</h3>
-                        <p>Яркие магниты с фотографиями семьи для холодильника. Каждый магнит имеет индивидуальный дизайн и защитное покрытие.</p>
-                    </div>
-                </div>
-                
-                <!-- Пример 2 -->
-                <div class="example-card">
-                    <img src="стикер.jpg" alt="Пример работы 2" class="example-img">
-                    <div class="example-info">
-                        <h3>3D стикеры для ноутбука телефона</h3>
-                        <p>Объемные наклейки с логотипом компании для корпоративного мерча. Стильный дизайн, стойкие цвета.</p>
-                    </div>
-                </div>
-                
-                <!-- Пример 3 -->
-                <div class="example-card">
-                    <img src="Брелок.jpg" alt="Пример работы 3" class="example-img">
-                    <div class="example-info">
-                        <h3>Альбом-брелок с фото</h3>
-                        <p>Миниатюрный альбом для фотографий в виде брелока. Идеальный подарок на память о важном событии.</p>
-                    </div>
-                </div>
-                
-                <!-- Пример 4 -->
-                <div class="example-card">
-                    <img src="Шоколад1.jpg" alt="Пример работы 4" class="example-img">
-                    <div class="example-info">
-                        <h3>Именной шоколад</h3>
-                        <p>Шоколад с индивидуальным дизайном упаковки для торжества. Каждый гость получил именной подарок.</p>
-                    </div>
-                </div>
-                
-                <!-- Пример 5 -->
-                <div class="example-card">
-                    <img src="Ручки.jpg" alt="Пример работы 5" class="example-img">
-                    <div class="example-info">
-                        <h3>Именные ручки для сотрудников</h3>
-                        <p>Элегантные ручки с гравировкой имени каждого сотрудника. Корпоративный подарок на профессиональный праздник.</p>
-                    </div>
-                </div>
-                
-                <!-- Пример 6 -->
-                <div class="example-card">
-                    <img src="photo_2025-12-17_12-49-17.jpg" alt="Пример работы 6" class="example-img">
-                    <div class="example-info">
-                        <h3>Куб с фотографиями на юбилей</h3>
-                        <p>Акриловый куб с фотографиями именинника в разные годы жизни. Эмоциональный и памятный подарок.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <p style="color: var(--gray); font-size: 1.1rem;">
-                    <i class="fas fa-lightbulb" style="color: var(--secondary); margin-right: 10px;"></i>
-                    <strong>Хотите что-то подобное?</strong> Отправьте нам свои идеи, и мы создадим уникальный дизайн специально для вас!
-                </p>
-                <a href="#order" class="cta-button" style="margin-top: 20px;">Заказать свой дизайн</a>
             </div>
         </div>
     </section>
@@ -1003,19 +877,25 @@
                                 <label class="product-option">
                                     <input type="checkbox" name="products" value="Магниты (80 ₽/шт)">
                                     <span>Магниты <br></span>
-                                    <span class="product-price-small">80/100 ₽/шт</span>
+                                    <span class="product-price-small">80 ₽/шт</span>
                                 </label>
-                                
+
                                 <label class="product-option">
                                     <input type="checkbox" name="products" value="3D Стикеры (65 ₽/шт)">
                                     <span>3D Стикеры <br></span>
-                                    <span class="product-price-small">85 ₽/шт</span>
+                                    <span class="product-price-small">65 ₽/шт</span>
                                 </label>
                                 
                                 <label class="product-option">
-                                    <input type="checkbox" name="products" value="Альбом-брелок (300 ₽/шт)">
+                                    <input type="checkbox" name="products" value="Альбом-брелок (380 ₽/шт)">
                                     <span>Альбом-брелок <br></span>
                                     <span class="product-price-small">380 ₽/шт</span>
+                                </label>
+                                
+                                <label class="product-option">
+                                    <input type="checkbox" name="products" value="Шоколад для защитников (25 ₽/шт)">
+                                    <span>Шоколад для защитников <br></span>
+                                    <span class="product-price-small">370 ₽/шт</span>
                                 </label>
                                 
                                 <label class="product-option">
@@ -1027,11 +907,11 @@
                                 <label class="product-option">
                                     <input type="checkbox" name="products" value="Именные ручки (70 ₽/шт)">
                                     <span>Именные ручки <br></span>
-                                    <span class="product-price-small">80 ₽/шт</span>
+                                    <span class="product-price-small">70 ₽/шт</span>
                                 </label>
                                 
                                 <label class="product-option">
-                                    <input type="checkbox" name="products" value="Куб с фотографиями (700 ₽/шт)">
+                                    <input type="checkbox" name="products" value="Куб с фотографиями (750 ₽/шт)">
                                     <span>Куб с фотографиями </span>
                                     <span class="product-price-small">750 ₽/шт</span>
                                 </label>
@@ -1055,9 +935,6 @@
                         </div>
                         
                         <button type="submit" class="submit-btn">Отправить заявку</button>
-                        <p style="text-align: center; margin-top: 15px; color: var(--new-year); font-weight: bold;">
-                            🎄 Не забудьте про новогоднюю скидку 10%! Акция действует до 31 января 2026 года.
-                        </p>
                     </form>
                 </div>
             </div>
@@ -1078,7 +955,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>+7 (950) 708 19 90</span>
+                        <span>+7 (999) 224 99 31</span>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-telegram"></i>
@@ -1092,7 +969,6 @@
                 
                 <div class="copyright">
                     <p>&copy; 2023 Kosi. Все права защищены.</p>
-                    <p style="margin-top: 10px;">🎅 С Новым Годом! Пусть 2026 год принесет вам много радости и счастливых моментов!</p>
                 </div>
             </div>
         </div>
@@ -1102,65 +978,8 @@
     <div id="notification" class="notification"></div>
 
     <script>
-        // Новогоднее поздравление
-        document.addEventListener('DOMContentLoaded', function() {
-            const newYearPopup = document.getElementById('newYearPopup');
-            const closePopup = document.getElementById('closePopup');
-            
-            // Показываем попап при загрузке страницы
-            setTimeout(() => {
-                newYearPopup.style.display = 'flex';
-            }, 500);
-            
-            // Закрытие попапа
-            closePopup.addEventListener('click', () => {
-                newYearPopup.style.display = 'none';
-                startSnowAnimation();
-            });
-            
-            // Запускаем снег
-            setTimeout(startSnowAnimation, 3000);
-        });
-        
-        // Анимация снега
-        function startSnowAnimation() {
-            const snowflakes = ['❄', '❅', '❆', '✦', '✧', '✶'];
-            
-            function createSnowflake() {
-                const snowflake = document.createElement('div');
-                snowflake.classList.add('snowflake');
-                snowflake.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
-                
-                // Случайная позиция по горизонтали
-                snowflake.style.left = Math.random() * 100 + 'vw';
-                
-                // Случайный размер
-                const size = Math.random() * 20 + 10;
-                snowflake.style.fontSize = size + 'px';
-                
-                // Случайная скорость
-                const duration = Math.random() * 10 + 10;
-                snowflake.style.animation = `snowFall ${duration}s linear infinite`;
-                
-                // Случайная задержка
-                snowflake.style.animationDelay = Math.random() * 5 + 's';
-                
-                document.body.appendChild(snowflake);
-                
-                // Удаляем снежинку после завершения анимации
-                setTimeout(() => {
-                    snowflake.remove();
-                }, duration * 1000);
-            }
-            
-            // Создаем снежинки каждые 100ms
-            setInterval(createSnowflake, 1000);
-            
-            // Начальное создание снежинок
-            for (let i = 0; i < 30; i++) {
-                setTimeout(createSnowflake, i * 100);
-            }
-        }
+        // Активация военной темы
+        document.body.classList.add('military-theme');
         
         // Мобильное меню
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1209,9 +1028,7 @@
             
             // Формируем текст письма
             const emailBody = `
-НОВАЯ ЗАЯВКА С САЙТА KOSI 🎄
-
-Новогодняя акция: Скидка 15% до 31 января 2026!
+НОВАЯ ЗАЯВКА С САЙТА KOSI
 
 Клиент: ${data.name}
 
@@ -1249,7 +1066,7 @@ ${data.details || 'Не указаны'}
                         quantity: data.quantity,
                         deadline: data.deadline,
                         details: data.details,
-                        _subject: `🎄 Новая заявка от ${data.name} - Kosi (Новогодняя акция!)`,
+                        _subject: `Новая заявка от ${data.name} - Kosi`,
                         _replyto: data.email,
                         _format: 'plain',
                         message: emailBody
@@ -1257,7 +1074,7 @@ ${data.details || 'Не указаны'}
                 });
                 
                 if (response.ok) {
-                    showNotification('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время. 🎅 Не забудьте про новогоднюю скидку 15%!', 'success');
+                    showNotification('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
                     orderForm.reset();
                     
                     // Сбрасываем визуальное состояние выбора товаров
@@ -1313,9 +1130,97 @@ ${data.details || 'Не указаны'}
         telegramInput.addEventListener('input', function() {
             this.value = this.value.replace(/@/g, '');
         });
+        
+        // Салют анимация
+        function createFirework() {
+            const colors = ['#d4af37', '#ff0000', '#ffffff', '#0000ff', '#1a472a'];
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = Math.random() * 100 + 'vw';
+            firework.style.top = Math.random() * 100 + 'vh';
+            firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            document.getElementById('holidayOverlay').appendChild(firework);
+            
+            // Анимация взрыва
+            const particles = 15;
+            for (let i = 0; i < particles; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'firework';
+                    particle.style.left = firework.style.left;
+                    particle.style.top = firework.style.top;
+                    particle.style.backgroundColor = firework.style.backgroundColor;
+                    
+                    document.getElementById('holidayOverlay').appendChild(particle);
+                    
+                    const angle = (Math.PI * 2 * i) / particles;
+                    const distance = 50 + Math.random() * 100;
+                    const duration = 800 + Math.random() * 400;
+                    
+                    particle.animate([
+                        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                        { 
+                            transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0)`, 
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: duration,
+                        easing: 'ease-out'
+                    });
+                    
+                    // Удаление частицы после анимации
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, duration);
+                }, i * 20);
+            }
+            
+            // Удаление основного фейерверка
+            setTimeout(() => {
+                if (firework.parentNode) {
+                    firework.parentNode.removeChild(firework);
+                }
+            }, 500);
+        }
+        
+        // Запуск салюта
+        function startFireworks() {
+            // Первый залп сразу
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => createFirework(), i * 200);
+            }
+            
+            // Продолжаем салют каждые 800мс
+            const fireworksInterval = setInterval(() => {
+                if (Math.random() > 0.3) { // 70% chance for a firework
+                    createFirework();
+                }
+            }, 800);
+            
+            // Остановка салюта через 5 секунд
+            setTimeout(() => {
+                clearInterval(fireworksInterval);
+            }, 5000);
+        }
+        
+        // Автоматическое скрытие поздравления через 5 секунд
+        document.addEventListener('DOMContentLoaded', function() {
+            startFireworks();
+            
+            setTimeout(() => {
+                const overlay = document.getElementById('holidayOverlay');
+                overlay.style.animation = 'fadeOut 0.5s ease-in-out forwards';
+                
+                setTimeout(() => {
+                    if (overlay.parentNode) {
+                        overlay.parentNode.removeChild(overlay);
+                    }
+                }, 500);
+            }, 5000);
+        });
     </script>
 </body>
 </html>
-
-
-
