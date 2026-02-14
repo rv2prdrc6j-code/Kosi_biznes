@@ -318,11 +318,92 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
-        .product-image {
+        /* Стили для слайдера изображений */
+        .product-image-container {
+            position: relative;
             width: 100%;
             height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image-slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            height: 100%;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
+            flex-shrink: 0;
+        }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--dark);
+            transition: all 0.3s;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .product-card:hover .slider-btn {
+            opacity: 1;
+        }
+        
+        .slider-btn:hover {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .slider-btn.prev {
+            left: 10px;
+        }
+        
+        .slider-btn.next {
+            right: 10px;
+        }
+        
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+        
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: var(--secondary);
+            transform: scale(1.2);
+        }
+        
+        .military-theme .slider-dot.active {
+            background: #d4af37;
         }
         
         .product-info {
@@ -367,7 +448,7 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            z-index: 1;
+            z-index: 10;
         }
         
         .military-badge {
@@ -380,7 +461,7 @@
             transform: rotate(-45deg);
             font-size: 0.8rem;
             font-weight: bold;
-            z-index: 1;
+            z-index: 10;
         }
         
         /* Order Form */
@@ -626,7 +707,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .product-image {
+            .product-image-container {
                 height: 180px;
             }
             
@@ -698,7 +779,7 @@
                 height: 35px;
             }
             
-            .product-image {
+            .product-image-container {
                 height: 160px;
             }
             
@@ -767,70 +848,8 @@
                 <p>Широкий выбор персонализированных сувениров для любых событий и мероприятий</p>
             </div>
             
-            <div class="products-grid">
-                <div class="product-card">
-                    <img src="магнит мин.jpg" alt="Магниты" class="product-image">
-                    <div class="product-info">
-                        <h3>Магниты</h3>
-                        <div class="product-price">80 ₽ / шт</div>
-                        <p>Яркие, долговечные магниты с любым изображением. Идеальный сувенир на память.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="стикер.jpg" alt="3D Стикеры" class="product-image">
-                    <div class="product-info">
-                        <h3>3D Стикеры</h3>
-                        <div class="product-price">65 ₽ / шт</div>
-                        <p>Объемные наклейки с эффектом 3D. Украсят любую поверхность и поднимут настроение.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="Брелок.jpg" alt="Альбом-брелок" class="product-image">
-                    <div class="product-info">
-                        <h3>Альбом-брелок</h3>
-                        <div class="product-price">380 ₽ / шт</div>
-                        <p>Миниатюрный альбом для фотографий в виде брелока. Носить воспоминания с собой.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card military-product">
-                    <div class="military-badge">Спецпредложение</div>
-                    <img src="2026-02-07_17-28-32.png" alt="Шоколад для защитников" class="product-image">
-                    <div class="product-info">
-                        <h3>Шоколад для защитников</h3>
-                        <div class="product-price">370 ₽ / шт</div>
-                        <p>Тематический шоколад ко Дню защитника Отечества с патриотическим дизайном. Отличный подарок для коллег, друзей и родных.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="Шоколад1.jpg" alt="Именной шоколад" class="product-image">
-                    <div class="product-info">
-                        <h3>Именной шоколад</h3>
-                        <div class="product-price">20 ₽ / шт</div>
-                        <p>Вкусный подарок с индивидуальным дизайном упаковки и персональным посланием.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="Ручки.jpg" alt="Именные ручки" class="product-image">
-                    <div class="product-info">
-                        <h3>Именные ручки</h3>
-                        <div class="product-price">70 ₽ / шт</div>
-                        <p>Элегантные ручки с гравировкой имени или логотипа. Стильный и практичный подарок.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="Куб с фото.jpg" alt="Куб с фотографиями" class="product-image">
-                    <div class="product-info">
-                        <h3>Куб с фотографиями</h3>
-                        <div class="product-price">750 ₽ / шт</div>
-                        <p>Элегантный акриловый куб с вашими фотографиями на каждой грани. Современный и стильный подарок на память.</p>
-                    </div>
-                </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Товары будут заполнены через JavaScript -->
             </div>
         </div>
     </section>
@@ -894,8 +913,8 @@
                                 
                                 <label class="product-option">
                                     <input type="checkbox" name="products" value="Шоколад для защитников (25 ₽/шт)">
-                                    <span>Шоколад для защитников <br></span>
-                                    <span class="product-price-small">370 ₽/шт</span>
+                                    <span>Набор для защитников <br></span>
+                                    <span class="product-price-small">399 ₽/шт</span>
                                 </label>
                                 
                                 <label class="product-option">
@@ -991,6 +1010,176 @@
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
+        
+        // Данные товаров с несколькими изображениями
+        const productsData = [
+            {
+                id: 1,
+                name: "Магниты",
+                price: "80 ₽ / шт",
+                description: "Яркие, долговечные магниты с любым изображением. Идеальный сувенир на память.",
+                images: [
+                    "Магниты на показ.jpg",
+                ],
+                military: false
+            },
+            {
+                id: 2,
+                name: "3D Стикеры",
+                price: "65 ₽ / шт",
+                description: "Объемные наклейки с эффектом 3D. Украсят любую поверхность и поднимут настроение.",
+                images: [
+                    "стикер.jpg",
+                ],
+                military: false
+            },
+            {
+                id: 3,
+                name: "Альбом-брелок",
+                price: "380 ₽ / шт",
+                description: "Миниатюрный альбом для фотографий в виде брелока. Носить воспоминания с собой.",
+                images: [
+                    "Брелок.jpg",
+                ],
+                military: false
+            },
+            {
+                id: 4,
+                name: "Набор для защитников",
+                price: "399 ₽ / шт",
+                description: "Тематический Набор: 3 стикера, 2 магнита и шоколад с пожеланиями ко Дню защитника Отечества с патриотическим дизайном. Отличный подарок для коллег, друзей и родных.",
+                images: [
+                    "2026-02-07_17-28-32.png",
+                    "набор 2.png",
+                ],
+                military: true
+            },
+            {
+                id: 5,
+                name: "Именной шоколад",
+                price: "20 ₽ / шт",
+                description: "Вкусный подарок с индивидуальным дизайном упаковки и персональным посланием.",
+                images: [
+                    "Шоколад1.jpg",
+                ],
+                military: false
+            },
+            {
+                id: 6,
+                name: "Именные ручки",
+                price: "70 ₽ / шт",
+                description: "Элегантные ручки с гравировкой имени или логотипа. Стильный и практичный подарок.",
+                images: [
+                    "Ручки.jpg",
+                ],
+                military: false
+            },
+            {
+                id: 7,
+                name: "Куб с фотографиями",
+                price: "750 ₽ / шт",
+                description: "Элегантный акриловый куб с вашими фотографиями на каждой грани. Современный и стильный подарок на память.",
+                images: [
+                    "Куб с фото.jpg",
+                ],
+                military: false
+            }
+        ];
+
+        // Функция создания слайдера для товара
+        function createProductSlider(product) {
+            const sliderId = `slider-${product.id}`;
+            
+            let militaryClass = product.military ? 'military-product' : '';
+            let militaryBadge = product.military ? '<div class="military-badge">Спецпредложение</div>' : '';
+            
+            let dots = '';
+            for (let i = 0; i < product.images.length; i++) {
+                dots += `<div class="slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></div>`;
+            }
+            
+            return `
+                <div class="product-card ${militaryClass}" data-product-id="${product.id}">
+                    ${militaryBadge}
+                    <div class="product-image-container">
+                        <div class="product-image-slider" id="${sliderId}">
+                            ${product.images.map(img => `<img src="${img}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">`).join('')}
+                        </div>
+                        <button class="slider-btn prev" onclick="slideProduct(${product.id}, -1)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next" onclick="slideProduct(${product.id}, 1)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots" id="dots-${product.id}">
+                            ${dots}
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <div class="product-price">${product.price}</div>
+                        <p>${product.description}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Функция для переключения слайдов
+        window.slideProduct = function(productId, direction) {
+            const slider = document.getElementById(`slider-${productId}`);
+            if (!slider) return;
+            
+            const totalSlides = slider.children.length;
+            const slideWidth = slider.children[0].offsetWidth;
+            
+            // Получаем текущую позицию
+            let currentIndex = parseInt(slider.dataset.currentIndex || 0);
+            
+            // Вычисляем новую позицию
+            let newIndex = currentIndex + direction;
+            if (newIndex < 0) newIndex = totalSlides - 1;
+            if (newIndex >= totalSlides) newIndex = 0;
+            
+            // Применяем трансформацию
+            slider.style.transform = `translateX(-${newIndex * slideWidth}px)`;
+            slider.dataset.currentIndex = newIndex;
+            
+            // Обновляем точки
+            const dots = document.querySelectorAll(`#dots-${productId} .slider-dot`);
+            dots.forEach((dot, index) => {
+                if (index === newIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        };
+
+        // Инициализация слайдеров
+        function initSliders() {
+            const products = document.querySelectorAll('[id^="slider-"]');
+            products.forEach(slider => {
+                slider.dataset.currentIndex = 0;
+                
+                // Добавляем обработчик для обновления размера при изменении окна
+                const productId = slider.id.replace('slider-', '');
+                const resizeObserver = new ResizeObserver(() => {
+                    const currentIndex = parseInt(slider.dataset.currentIndex || 0);
+                    const slideWidth = slider.children[0]?.offsetWidth || 0;
+                    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                });
+                
+                resizeObserver.observe(slider);
+            });
+        }
+
+        // Заполнение товаров
+        function renderProducts() {
+            const productsGrid = document.getElementById('productsGrid');
+            productsGrid.innerHTML = productsData.map(product => createProductSlider(product)).join('');
+            
+            // Инициализация слайдеров после добавления в DOM
+            setTimeout(initSliders, 100);
+        }
+
+        // Вызов рендера при загрузке
+        document.addEventListener('DOMContentLoaded', renderProducts);
         
         // Выбор товаров
         const productOptions = document.querySelectorAll('.product-option');
