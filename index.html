@@ -28,134 +28,6 @@
             overflow-x: hidden;
         }
         
-        /* Военный стиль для Дня защитника Отечества */
-        .military-theme {
-            --primary: #1a472a;
-            --secondary: #d4af37;
-            --light: #f8f9fa;
-            --dark: #0d2818;
-        }
-        
-        .military-theme header {
-            background: linear-gradient(135deg, #1a472a, #2a623d);
-            border-bottom: 3px solid #d4af37;
-        }
-        
-        .military-theme .hero {
-            background: linear-gradient(rgba(26, 71, 42, 0.1), rgba(212, 175, 55, 0.1));
-        }
-        
-        .military-theme .hero h2 {
-            color: #1a472a;
-        }
-        
-        .military-theme .section-title h2 {
-            color: #1a472a;
-        }
-        
-        .military-theme .product-card {
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .military-theme .form-header {
-            background: linear-gradient(to right, #1a472a, #2a623d);
-        }
-        
-        .military-theme .submit-btn {
-            background: linear-gradient(to right, #d4af37, #ffd700);
-            color: #1a472a;
-        }
-        
-        .military-theme .submit-btn:hover {
-            background: linear-gradient(to right, #ffd700, #ffed4e);
-        }
-        
-        .military-theme .cta-button {
-            background: #d4af37;
-            color: #1a472a;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-        
-        .military-theme .cta-button:hover {
-            background: #ffd700;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-        }
-        
-        .military-theme .product-price {
-            background: #fff8e1;
-        }
-        
-        .military-theme .product-price-small {
-            background: #fff8e1;
-        }
-        
-        /* Анимация поздравления */
-        .holiday-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-            animation: fadeOut 0.5s ease-in-out 5s forwards;
-        }
-        
-        .holiday-message {
-            text-align: center;
-            color: white;
-            z-index: 10001;
-        }
-        
-        .holiday-message h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #d4af37;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            animation: pulse 2s infinite;
-        }
-        
-        .holiday-message p {
-            font-size: 1.5rem;
-            color: #ffffff;
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        
-        .patriotic-text {
-            color: #d4af37;
-            font-weight: bold;
-            font-size: 1.8rem;
-            margin-top: 20px;
-        }
-        
-        /* Салют */
-        .firework {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            z-index: 10000;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-        
-        /* Основные стили */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -318,92 +190,11 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
-        /* Стили для слайдера изображений */
-        .product-image-container {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .product-image-slider {
-            display: flex;
-            transition: transform 0.3s ease-in-out;
-            height: 100%;
-        }
-        
         .product-image {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
             display: block;
-            flex-shrink: 0;
-        }
-        
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.8);
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 16px;
-            color: var(--dark);
-            transition: all 0.3s;
-            z-index: 5;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .product-card:hover .slider-btn {
-            opacity: 1;
-        }
-        
-        .slider-btn:hover {
-            background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .slider-btn.prev {
-            left: 10px;
-        }
-        
-        .slider-btn.next {
-            right: 10px;
-        }
-        
-        .slider-dots {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 5;
-        }
-        
-        .slider-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .slider-dot.active {
-            background: var(--secondary);
-            transform: scale(1.2);
-        }
-        
-        .military-theme .slider-dot.active {
-            background: #d4af37;
         }
         
         .product-info {
@@ -425,43 +216,6 @@
             background: #ffebee;
             border-radius: 5px;
             display: inline-block;
-        }
-        
-        /* Military Product Special */
-        .military-product {
-            border: 2px solid #d4af37;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .military-product:before {
-            content: "★";
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #d4af37;
-            color: #1a472a;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            z-index: 10;
-        }
-        
-        .military-badge {
-            position: absolute;
-            top: 10px;
-            left: -30px;
-            background: #d32f2f;
-            color: white;
-            padding: 5px 35px;
-            transform: rotate(-45deg);
-            font-size: 0.8rem;
-            font-weight: bold;
-            z-index: 10;
         }
         
         /* Order Form */
@@ -707,7 +461,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .product-image-container {
+            .product-image {
                 height: 180px;
             }
             
@@ -718,18 +472,6 @@
             .logo-img {
                 width: 40px;
                 height: 40px;
-            }
-            
-            .holiday-message h1 {
-                font-size: 2.5rem;
-            }
-            
-            .holiday-message p {
-                font-size: 1.2rem;
-            }
-            
-            .patriotic-text {
-                font-size: 1.5rem;
             }
         }
         
@@ -779,35 +521,13 @@
                 height: 35px;
             }
             
-            .product-image-container {
+            .product-image {
                 height: 160px;
-            }
-            
-            .holiday-message h1 {
-                font-size: 2rem;
-            }
-            
-            .holiday-message p {
-                font-size: 1rem;
-            }
-            
-            .patriotic-text {
-                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Праздничное поздравление -->
-    <div class="holiday-overlay" id="holidayOverlay">
-        <div class="holiday-message">
-            <h1>С Днём Защитника Отечества!</h1>
-            <p>Дорогие защитники, ветераны и все те, кто стоит на страже нашей Родины!</p>
-            <p>От всего сердца поздравляем вас с праздником мужества, чести и отваги!</p>
-            <div class="patriotic-text">Слава защитникам Отечества!</div>
-        </div>
-    </div>
-
     <!-- Header -->
     <header>
         <div class="container header-content">
@@ -848,8 +568,60 @@
                 <p>Широкий выбор персонализированных сувениров для любых событий и мероприятий</p>
             </div>
             
-            <div class="products-grid" id="productsGrid">
-                <!-- Товары будут заполнены через JavaScript -->
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="магнит мин.jpg" alt="Магниты" class="product-image">
+                    <div class="product-info">
+                        <h3>Магниты</h3>
+                        <div class="product-price">80 ₽ / шт</div>
+                        <p>Яркие, долговечные магниты с любым изображением. Идеальный сувенир на память.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="стикер.jpg" alt="3D Стикеры" class="product-image">
+                    <div class="product-info">
+                        <h3>3D Стикеры</h3>
+                        <div class="product-price">65 ₽ / шт</div>
+                        <p>Объемные наклейки с эффектом 3D. Украсят любую поверхность и поднимут настроение.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="Брелок.jpg"Альбом-брелок" class="product-image">
+                    <div class="product-info">
+                        <h3>Альбом-брелок</h3>
+                        <div class="product-price">380 ₽ / шт</div>
+                        <p>Миниатюрный альбом для фотографий в виде брелока. Носить воспоминания с собой.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="Шоколад1.jpg" alt="Именной шоколад" class="product-image">
+                    <div class="product-info">
+                        <h3>Именной шоколад</h3>
+                        <div class="product-price">20 ₽ / шт</div>
+                        <p>Вкусный подарок с индивидуальным дизайном упаковки и персональным посланием.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="Ручки.jpg" alt="Именные ручки" class="product-image">
+                    <div class="product-info">
+                        <h3>Именные ручки</h3>
+                        <div class="product-price">70 ₽ / шт</div>
+                        <p>Элегантные ручки с гравировкой имени или логотипа. Стильный и практичный подарок.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="Куб с фото.jpg" alt="Куб с фотографиями" class="product-image">
+                    <div class="product-info">
+                        <h3>Куб с фотографиями</h3>
+                        <div class="product-price">750 ₽ / шт</div>
+                        <p>Элегантный акриловый куб с вашими фотографиями на каждой грани. Современный и стильный подарок на память.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -906,15 +678,9 @@
                                 </label>
                                 
                                 <label class="product-option">
-                                    <input type="checkbox" name="products" value="Альбом-брелок (380 ₽/шт)">
+                                    <input type="checkbox" name="products" value="Альбом-брелок (300 ₽/шт)">
                                     <span>Альбом-брелок <br></span>
                                     <span class="product-price-small">380 ₽/шт</span>
-                                </label>
-                                
-                                <label class="product-option">
-                                    <input type="checkbox" name="products" value="Шоколад для защитников (25 ₽/шт)">
-                                    <span>Набор для защитников <br></span>
-                                    <span class="product-price-small">399 ₽/шт</span>
                                 </label>
                                 
                                 <label class="product-option">
@@ -930,7 +696,7 @@
                                 </label>
                                 
                                 <label class="product-option">
-                                    <input type="checkbox" name="products" value="Куб с фотографиями (750 ₽/шт)">
+                                    <input type="checkbox" name="products" value="Куб с фотографиями (700 ₽/шт)">
                                     <span>Куб с фотографиями </span>
                                     <span class="product-price-small">750 ₽/шт</span>
                                 </label>
@@ -959,6 +725,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- Footer -->
     <footer id="contacts">
@@ -997,9 +765,6 @@
     <div id="notification" class="notification"></div>
 
     <script>
-        // Активация военной темы
-        document.body.classList.add('military-theme');
-        
         // Мобильное меню
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
@@ -1010,176 +775,6 @@
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
-        
-        // Данные товаров с несколькими изображениями
-        const productsData = [
-            {
-                id: 1,
-                name: "Магниты",
-                price: "80 ₽ / шт",
-                description: "Яркие, долговечные магниты с любым изображением. Идеальный сувенир на память.",
-                images: [
-                    "Магниты на показ.jpg",
-                ],
-                military: false
-            },
-            {
-                id: 2,
-                name: "3D Стикеры",
-                price: "65 ₽ / шт",
-                description: "Объемные наклейки с эффектом 3D. Украсят любую поверхность и поднимут настроение.",
-                images: [
-                    "стикер.jpg",
-                ],
-                military: false
-            },
-            {
-                id: 3,
-                name: "Альбом-брелок",
-                price: "380 ₽ / шт",
-                description: "Миниатюрный альбом для фотографий в виде брелока. Носить воспоминания с собой.",
-                images: [
-                    "Брелок.jpg",
-                ],
-                military: false
-            },
-            {
-                id: 4,
-                name: "Набор для защитников",
-                price: "399 ₽ / шт",
-                description: "Тематический Набор: 3 стикера, 2 магнита и шоколад с пожеланиями ко Дню защитника Отечества с патриотическим дизайном. Отличный подарок для коллег, друзей и родных.",
-                images: [
-                    "2026-02-07_17-28-32.png",
-                    "набор 2.png",
-                ],
-                military: true
-            },
-            {
-                id: 5,
-                name: "Именной шоколад",
-                price: "20 ₽ / шт",
-                description: "Вкусный подарок с индивидуальным дизайном упаковки и персональным посланием.",
-                images: [
-                    "Шоколад1.jpg",
-                ],
-                military: false
-            },
-            {
-                id: 6,
-                name: "Именные ручки",
-                price: "70 ₽ / шт",
-                description: "Элегантные ручки с гравировкой имени или логотипа. Стильный и практичный подарок.",
-                images: [
-                    "Ручки.jpg",
-                ],
-                military: false
-            },
-            {
-                id: 7,
-                name: "Куб с фотографиями",
-                price: "750 ₽ / шт",
-                description: "Элегантный акриловый куб с вашими фотографиями на каждой грани. Современный и стильный подарок на память.",
-                images: [
-                    "Куб с фото.jpg",
-                ],
-                military: false
-            }
-        ];
-
-        // Функция создания слайдера для товара
-        function createProductSlider(product) {
-            const sliderId = `slider-${product.id}`;
-            
-            let militaryClass = product.military ? 'military-product' : '';
-            let militaryBadge = product.military ? '<div class="military-badge">Спецпредложение</div>' : '';
-            
-            let dots = '';
-            for (let i = 0; i < product.images.length; i++) {
-                dots += `<div class="slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></div>`;
-            }
-            
-            return `
-                <div class="product-card ${militaryClass}" data-product-id="${product.id}">
-                    ${militaryBadge}
-                    <div class="product-image-container">
-                        <div class="product-image-slider" id="${sliderId}">
-                            ${product.images.map(img => `<img src="${img}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(product.name)}'">`).join('')}
-                        </div>
-                        <button class="slider-btn prev" onclick="slideProduct(${product.id}, -1)"><i class="fas fa-chevron-left"></i></button>
-                        <button class="slider-btn next" onclick="slideProduct(${product.id}, 1)"><i class="fas fa-chevron-right"></i></button>
-                        <div class="slider-dots" id="dots-${product.id}">
-                            ${dots}
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>${product.name}</h3>
-                        <div class="product-price">${product.price}</div>
-                        <p>${product.description}</p>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Функция для переключения слайдов
-        window.slideProduct = function(productId, direction) {
-            const slider = document.getElementById(`slider-${productId}`);
-            if (!slider) return;
-            
-            const totalSlides = slider.children.length;
-            const slideWidth = slider.children[0].offsetWidth;
-            
-            // Получаем текущую позицию
-            let currentIndex = parseInt(slider.dataset.currentIndex || 0);
-            
-            // Вычисляем новую позицию
-            let newIndex = currentIndex + direction;
-            if (newIndex < 0) newIndex = totalSlides - 1;
-            if (newIndex >= totalSlides) newIndex = 0;
-            
-            // Применяем трансформацию
-            slider.style.transform = `translateX(-${newIndex * slideWidth}px)`;
-            slider.dataset.currentIndex = newIndex;
-            
-            // Обновляем точки
-            const dots = document.querySelectorAll(`#dots-${productId} .slider-dot`);
-            dots.forEach((dot, index) => {
-                if (index === newIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        };
-
-        // Инициализация слайдеров
-        function initSliders() {
-            const products = document.querySelectorAll('[id^="slider-"]');
-            products.forEach(slider => {
-                slider.dataset.currentIndex = 0;
-                
-                // Добавляем обработчик для обновления размера при изменении окна
-                const productId = slider.id.replace('slider-', '');
-                const resizeObserver = new ResizeObserver(() => {
-                    const currentIndex = parseInt(slider.dataset.currentIndex || 0);
-                    const slideWidth = slider.children[0]?.offsetWidth || 0;
-                    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-                });
-                
-                resizeObserver.observe(slider);
-            });
-        }
-
-        // Заполнение товаров
-        function renderProducts() {
-            const productsGrid = document.getElementById('productsGrid');
-            productsGrid.innerHTML = productsData.map(product => createProductSlider(product)).join('');
-            
-            // Инициализация слайдеров после добавления в DOM
-            setTimeout(initSliders, 100);
-        }
-
-        // Вызов рендера при загрузке
-        document.addEventListener('DOMContentLoaded', renderProducts);
         
         // Выбор товаров
         const productOptions = document.querySelectorAll('.product-option');
@@ -1318,97 +913,6 @@ ${data.details || 'Не указаны'}
         const telegramInput = document.getElementById('telegram');
         telegramInput.addEventListener('input', function() {
             this.value = this.value.replace(/@/g, '');
-        });
-        
-        // Салют анимация
-        function createFirework() {
-            const colors = ['#d4af37', '#ff0000', '#ffffff', '#0000ff', '#1a472a'];
-            const firework = document.createElement('div');
-            firework.className = 'firework';
-            firework.style.left = Math.random() * 100 + 'vw';
-            firework.style.top = Math.random() * 100 + 'vh';
-            firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            
-            document.getElementById('holidayOverlay').appendChild(firework);
-            
-            // Анимация взрыва
-            const particles = 15;
-            for (let i = 0; i < particles; i++) {
-                setTimeout(() => {
-                    const particle = document.createElement('div');
-                    particle.className = 'firework';
-                    particle.style.left = firework.style.left;
-                    particle.style.top = firework.style.top;
-                    particle.style.backgroundColor = firework.style.backgroundColor;
-                    
-                    document.getElementById('holidayOverlay').appendChild(particle);
-                    
-                    const angle = (Math.PI * 2 * i) / particles;
-                    const distance = 50 + Math.random() * 100;
-                    const duration = 800 + Math.random() * 400;
-                    
-                    particle.animate([
-                        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-                        { 
-                            transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0)`, 
-                            opacity: 0 
-                        }
-                    ], {
-                        duration: duration,
-                        easing: 'ease-out'
-                    });
-                    
-                    // Удаление частицы после анимации
-                    setTimeout(() => {
-                        if (particle.parentNode) {
-                            particle.parentNode.removeChild(particle);
-                        }
-                    }, duration);
-                }, i * 20);
-            }
-            
-            // Удаление основного фейерверка
-            setTimeout(() => {
-                if (firework.parentNode) {
-                    firework.parentNode.removeChild(firework);
-                }
-            }, 500);
-        }
-        
-        // Запуск салюта
-        function startFireworks() {
-            // Первый залп сразу
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => createFirework(), i * 200);
-            }
-            
-            // Продолжаем салют каждые 800мс
-            const fireworksInterval = setInterval(() => {
-                if (Math.random() > 0.3) { // 70% chance for a firework
-                    createFirework();
-                }
-            }, 800);
-            
-            // Остановка салюта через 5 секунд
-            setTimeout(() => {
-                clearInterval(fireworksInterval);
-            }, 5000);
-        }
-        
-        // Автоматическое скрытие поздравления через 5 секунд
-        document.addEventListener('DOMContentLoaded', function() {
-            startFireworks();
-            
-            setTimeout(() => {
-                const overlay = document.getElementById('holidayOverlay');
-                overlay.style.animation = 'fadeOut 0.5s ease-in-out forwards';
-                
-                setTimeout(() => {
-                    if (overlay.parentNode) {
-                        overlay.parentNode.removeChild(overlay);
-                    }
-                }, 500);
-            }, 5000);
         });
     </script>
 </body>
